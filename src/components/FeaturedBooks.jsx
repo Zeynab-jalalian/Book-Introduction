@@ -32,25 +32,6 @@ function FeaturedBooks() {
       image: "heroImg.png",
       audio: true,
     },
-    {
-      id: 4,
-      title: "1984",
-      author: "جورج اورول",
-      category: "ادبیات سیاسی | پادآرمان‌شهر",
-      description:
-        "رمانی درباره کنترل، آزادی، قدرت و جامعه‌ای زیر سلطه نظارت دائمی.",
-      image: "heroImg.png",
-      audio: true,
-    },
-    {
-      id: 5,
-      title: "مزرعه حیوانات",
-      author: "جورج اورول",
-      category: "تمثیلی | سیاسی",
-      description: "داستانی نمادین درباره انقلاب، قدرت و تغییر ارزش‌ها.",
-      image: "heroImg.png",
-      audio: true,
-    },
   ];
 
   return (
