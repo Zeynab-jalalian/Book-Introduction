@@ -36,12 +36,12 @@ function FeaturedBooks() {
 
   return (
     <>
-      <section className="py-20 bg-stone-100">
-        <h2 className="text-4xl font-bold text-center text-stone-800 mb-12">
+      <section className="py-12 bg-stone-100 md:py-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-stone-800 mb-12">
           کتاب‌های منتخب
         </h2>
 
-        <div className="flex justify-center gap-8 flex-wrap">
+        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center md:flex-wrap">
           {books.map((book) => (
             <BookCard key={book.id} {...book} />
           ))}

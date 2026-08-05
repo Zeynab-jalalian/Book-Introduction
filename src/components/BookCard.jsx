@@ -1,10 +1,10 @@
 function BookCard({ id, title, author, category, description, image, audio }) {
   return (
-    <article className="w-72 bg-white rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.08)] overflow-hidden">
+    <article className="w-full max-w-72 bg-white rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.08)] overflow-hidden">
       <img
         src={`/images/${image}`}
         alt={title}
-        className="w-full h-80 object-cover"
+        className="w-full h-72 md:h-80 object-cover"
       />
 
       <div className="p-6">
