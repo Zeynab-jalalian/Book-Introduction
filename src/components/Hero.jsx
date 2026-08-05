@@ -3,10 +3,10 @@ import Button from "./Button";
 
 function Hero() {
   return (
-    <section className="py-20 bg-stone-50">
-      <div className="flex items-center justify-between px-12">
-        <div className="w-1/2">
-          <h1 className="text-5xl font-bold text-stone-800 leading-relaxed">
+    <section className="py-16 bg-stone-50 md:py-20">
+      <div className="flex flex-col-reverse items-center gap-10 px-6 md:flex-row md:justify-between md:px-12">
+        <div className="w-full text-center md:w-1/2 md:text-right">
+          <h1 className="text-4xl font-bold text-stone-800 leading-relaxed md:text-5xl">
             دنیایی از کتاب‌ها را کشف کنید
           </h1>
 
@@ -19,9 +19,9 @@ function Hero() {
           </div>
         </div>
 
-        <div className="w-1/2 flex justify-center">
+        <div className="w-full flex justify-center md:w-1/2">
           <img
-            className="w-96 object-contain rounded-2xl"
+            className="w-72 object-contain rounded-2xl md:w-96"
             src="/images/heroImg.png"
             alt="Hero-Book"
           />
