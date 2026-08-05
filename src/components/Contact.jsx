@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   return (
     <section className="py-12 bg-stone-50 md:py-20">
       <div className="flex flex-col items-center gap-10 px-6 md:flex-row md:justify-between md:px-12">
@@ -30,6 +33,8 @@ function Contact() {
               id="name"
               type="text"
               className="w-full px-4 py-3 border border-stone-200 rounded-lg outline-none focus:border-amber-700"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
@@ -42,6 +47,8 @@ function Contact() {
               id="email"
               type="email"
               className="w-full px-4 py-3 border border-stone-200 rounded-lg outline-none focus:border-amber-700"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -53,6 +60,8 @@ function Contact() {
             <textarea
               id="message"
               className="w-full h-32 px-4 py-3 border border-stone-200 rounded-lg outline-none resize-none focus:border-amber-700"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
 
