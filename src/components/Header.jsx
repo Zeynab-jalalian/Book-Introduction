@@ -22,7 +22,7 @@ function Header() {
       {/* Mobile Button */}
       <button
         onClick={handleMenu}
-        className="md:hidden p-2 rounded-xl cursor-pointer transition hover:scale-110"
+        className="md:hidden cursor-pointer transition hover:scale-110"
       >
         {isOpen ? <X size={32} /> : <Menu size={32} />}
       </button>
