@@ -4,6 +4,9 @@ function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
   return (
     <section className="py-12 bg-stone-50 md:py-20">
       <div className="flex flex-col items-center gap-10 px-6 md:flex-row md:justify-between md:px-12">
@@ -23,7 +26,10 @@ function Contact() {
           </div>
         </div>
 
-        <form className="w-full bg-white p-6 rounded-2xl shadow-[0_8_20px_rgba(0,0,0,0.08)] md:w-1/2 md:p-8">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full bg-white p-6 rounded-2xl shadow-[0_8_20px_rgba(0,0,0,0.08)] md:w-1/2 md:p-8"
+        >
           <div className="mb-5">
             <label htmlFor="name" className="block mb-2 text-stone-700">
               نام
