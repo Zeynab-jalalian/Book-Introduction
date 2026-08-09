@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { X } from "lucide-react";
 
 function RegisterModal({ onClose }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
       <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl md:p-8">
@@ -27,7 +34,7 @@ function RegisterModal({ onClose }) {
         </div>
 
         {/* Form */}
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-5">
             <label
               htmlFor="register-name"
@@ -39,6 +46,8 @@ function RegisterModal({ onClose }) {
             <input
               id="register-name"
               type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="نام خود را وارد کنید"
               className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
             />
@@ -55,6 +64,8 @@ function RegisterModal({ onClose }) {
             <input
               id="register-email"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="ایمیل خود را وارد کنید"
               className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
             />
@@ -71,6 +82,8 @@ function RegisterModal({ onClose }) {
             <input
               id="register-password"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="رمز عبور خود را وارد کنید"
               className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
             />
@@ -87,6 +100,8 @@ function RegisterModal({ onClose }) {
             <input
               id="register-confirm-password"
               type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="رمز عبور را دوباره وارد کنید"
               className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
             />
