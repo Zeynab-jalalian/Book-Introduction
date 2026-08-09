@@ -1,0 +1,107 @@
+import React from "react";
+import { X } from "lucide-react";
+
+function RegisterModal({ onClose }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+      <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl md:p-8">
+        {/* Header */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-stone-800 md:text-3xl">
+              ایجاد حساب کاربری
+            </h2>
+
+            <button
+              type="button"
+              onClick={onClose}
+              className="rounded-lg p-2 text-stone-500 transition hover:bg-stone-100 hover:text-stone-800"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          <p className="mt-2 text-sm text-stone-500">
+            برای ایجاد حساب اطلاعات خود را وارد کنید
+          </p>
+        </div>
+
+        {/* Form */}
+        <form>
+          <div className="mb-5">
+            <label
+              htmlFor="register-name"
+              className="mb-2 block text-sm font-medium text-stone-700"
+            >
+              نام
+            </label>
+
+            <input
+              id="register-name"
+              type="text"
+              placeholder="نام خود را وارد کنید"
+              className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label
+              htmlFor="register-email"
+              className="mb-2 block text-sm font-medium text-stone-700"
+            >
+              ایمیل
+            </label>
+
+            <input
+              id="register-email"
+              type="email"
+              placeholder="ایمیل خود را وارد کنید"
+              className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label
+              htmlFor="register-password"
+              className="mb-2 block text-sm font-medium text-stone-700"
+            >
+              رمز عبور
+            </label>
+
+            <input
+              id="register-password"
+              type="password"
+              placeholder="رمز عبور خود را وارد کنید"
+              className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
+            />
+          </div>
+
+          <div className="mb-5">
+            <label
+              htmlFor="register-confirm-password"
+              className="mb-2 block text-sm font-medium text-stone-700"
+            >
+              تکرار رمز عبور
+            </label>
+
+            <input
+              id="register-confirm-password"
+              type="password"
+              placeholder="رمز عبور را دوباره وارد کنید"
+              className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full rounded-lg bg-amber-700 py-3 font-medium text-white transition hover:bg-amber-800"
+          >
+            ثبت‌نام
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default RegisterModal;
