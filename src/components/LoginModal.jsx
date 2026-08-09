@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { X } from "lucide-react";
 
 function LoginModal({ onClose }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
       <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl md:p-8">
@@ -27,7 +32,7 @@ function LoginModal({ onClose }) {
         </div>
 
         {/* Form */}
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-5">
             <label
               htmlFor="login-email"
@@ -39,6 +44,8 @@ function LoginModal({ onClose }) {
             <input
               id="login-email"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="ایمیل خود را وارد کنید"
               className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
             />
@@ -55,6 +62,8 @@ function LoginModal({ onClose }) {
             <input
               id="login-password"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="رمز عبور خود را وارد کنید"
               className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
             />
@@ -68,13 +77,6 @@ function LoginModal({ onClose }) {
           </button>
         </form>
       </div>
-      <button
-        type="button"
-        onClick={onClose}
-        className="rounded-lg p-2 text-stone-500 transition hover:bg-stone-100 hover:text-stone-800"
-      >
-        <X size={24} />
-      </button>
     </div>
   );
 }
