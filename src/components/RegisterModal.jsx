@@ -6,6 +6,7 @@ function RegisterModal({ onClose }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -106,7 +107,22 @@ function RegisterModal({ onClose }) {
               className="w-full rounded-lg border border-stone-200 px-4 py-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
             />
           </div>
+          <div className="mb-5 flex items-center gap-2">
+            <input
+              id="register-remember"
+              type="checkbox"
+              checked={acceptedTerms}
+              onChange={(e) => setAcceptedTerms(e.target.checked)}
+              className="h-4 w-4 cursor-pointer accent-amber-700"
+            />
 
+            <label
+              htmlFor="register-remember"
+              className="cursor-pointer text-sm text-stone-600"
+            >
+              قوانین و شرایط را می‌پذیرم
+            </label>
+          </div>
           <button
             type="submit"
             className="w-full rounded-lg bg-amber-700 py-3 font-medium text-white transition hover:bg-amber-800"
