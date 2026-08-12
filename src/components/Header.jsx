@@ -84,6 +84,7 @@ function Header() {
             onClose={() => {
               setIsModalOpen(false);
             }}
+            setIsModalOpen={setIsModalOpen}
           />
         ) : (
           <RegisterModal

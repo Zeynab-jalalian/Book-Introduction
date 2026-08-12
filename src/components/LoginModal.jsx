@@ -9,8 +9,14 @@ function LoginModal({ onClose }) {
     e.preventDefault();
   }
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl md:p-8">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl md:p-8"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
         <div className="mb-6">
           <div className="flex items-center justify-between">
