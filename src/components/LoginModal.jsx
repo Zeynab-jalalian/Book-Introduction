@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
 
-function LoginModal({ onClose }) {
+function LoginModal({ onClose, loginToRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -97,6 +97,16 @@ function LoginModal({ onClose }) {
           >
             ورود
           </button>
+          <div className="mt-6 text-center text-sm text-stone-500">
+            <span>حساب کاربری ندارید؟ </span>
+            <button
+              onClick={loginToRegister}
+              type="button"
+              className="font-medium cursor-pointer text-amber-700 transition hover:text-amber-800 hover:underline"
+            >
+              ثبت‌نام کنید
+            </button>
+          </div>
         </form>
       </div>
     </div>

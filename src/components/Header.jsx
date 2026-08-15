@@ -21,7 +21,12 @@ function Header() {
     setIsLogin(false);
     setIsModalOpen(true);
   }
-
+  function loginToRegister() {
+    setIsLogin(false);
+  }
+  function registerToLogin() {
+    setIsLogin(true);
+  }
   return (
     <header className="relative flex justify-between items-center px-6 py-5 bg-stone-50 border-b border-stone-200 shadow-[0_8px_20px_rgba(0,0,0,0.05)] md:px-12">
       <Logo />
@@ -84,13 +89,14 @@ function Header() {
             onClose={() => {
               setIsModalOpen(false);
             }}
-            setIsModalOpen={setIsModalOpen}
+            loginToRegister={loginToRegister}
           />
         ) : (
           <RegisterModal
             onClose={() => {
               setIsModalOpen(false);
             }}
+            registerToLogin={registerToLogin}
           />
         ))}
     </header>
