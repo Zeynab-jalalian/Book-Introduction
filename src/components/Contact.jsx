@@ -6,6 +6,9 @@ function Contact() {
   const [message, setMessage] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
+    setName("");
+    setEmail("");
+    setMessage("");
   }
   return (
     <section className="py-12 bg-stone-50 md:py-20">
