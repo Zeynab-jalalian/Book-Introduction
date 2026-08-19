@@ -4,6 +4,8 @@ import MenuItemLists from "./MenuItemLists";
 import { Menu, X } from "lucide-react";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
+import { MdMenuBook } from "react-icons/md";
+import { RxCross2 } from "react-icons/rx";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +60,11 @@ function Header() {
         onClick={handleMenu}
         className="md:hidden cursor-pointer transition hover:scale-110"
       >
-        {isOpen ? <X size={32} /> : <Menu size={32} />}
+        {isOpen ? (
+          <RxCross2 className="text-3xl text-stone-700 transition duration-200 hover:scale-110 hover:text-amber-700" />
+        ) : (
+          <MdMenuBook className="text-3xl text-stone-700 transition duration-200 hover:scale-110 hover:text-amber-700" />
+        )}
       </button>
 
       {/* Mobile Menu */}
