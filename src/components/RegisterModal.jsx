@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
+import toast from "react-hot-toast";
 
 function RegisterModal({ onClose, registerToLogin }) {
   const [name, setName] = useState("");
@@ -9,6 +10,39 @@ function RegisterModal({ onClose, registerToLogin }) {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (name.trim() === "" || name.length < 8) {
+      toast.error("لطفاً نام خود را وارد کنید.");
+      return;
+    }
+
+    if (email.trim() === "") {
+      toast.error("لطفاً ایمیل خود را وارد کنید.");
+      return;
+    }
+
+    if (password.length < 8) {
+      toast.error("رمز عبور باید حداقل ۸ کاراکتر داشته باشد.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast.error("رمزهای عبور یکسان نیستند.");
+      return;
+    }
+
+    if (!acceptedTerms) {
+      toast.error("لطفاً قوانین و شرایط را بپذیرید.");
+      return;
+    }
+
+    toast.success("ثبت‌نام با موفقیت انجام شد");
+
+    setName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setAcceptedTerms(false);
   }
   return (
     <div
