@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
+import toast from "react-hot-toast";
 
 function LoginModal({ onClose, loginToRegister }) {
   const [email, setEmail] = useState("");
@@ -7,6 +8,15 @@ function LoginModal({ onClose, loginToRegister }) {
   const [rememberMe, setRememberMe] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
+    if (email.trim() === "") {
+      toast.error("لطفاً ایمیل خود را وارد کنید.");
+      return;
+    }
+    if (password.length < 8 || password.trim() === "") {
+      toast.error("رمزعبور حداقل باید 8 کاراکتر داشته باشد.");
+      return;
+    }
+    toast.success("پیام شما با موفقیت ارسال شد");
   }
   return (
     <div
