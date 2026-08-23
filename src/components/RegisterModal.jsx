@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
 import toast from "react-hot-toast";
+import Swal from "sweetalert";
 
 function RegisterModal({ onClose, registerToLogin }) {
   const [name, setName] = useState("");
@@ -36,7 +37,12 @@ function RegisterModal({ onClose, registerToLogin }) {
       return;
     }
 
-    toast.success("ثبت‌نام با موفقیت انجام شد");
+    Swal({
+      title: "ثبت نام موفق!",
+      text: "با موفقیت ثبت نام شدید.",
+      icon: "success",
+      button: "باشه",
+    });
 
     setName("");
     setEmail("");
