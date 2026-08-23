@@ -1,4 +1,5 @@
 import React, { useId, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -8,6 +9,23 @@ function Contact() {
   const id = useId();
   function handleSubmit(e) {
     e.preventDefault();
+    if (name.length < 8 || name.trim() === "") {
+      toast.error("نام کاربری باید حداقل 8 کاراکتر باشد.", {
+        duration: 1000,
+        position: "top-center",
+      });
+      return;
+    }
+    if (email.trim() === "") {
+      toast.error("لطفاً ایمیل خود را وارد کنید.");
+      return;
+    }
+    if (message.trim() === "") {
+      toast.error("لطفا پیام خود را وارد کنید.");
+      return;
+    }
+    toast.success("پیام شما با موفقیت ارسال شد");
+
     setName("");
     setEmail("");
     setMessage("");
@@ -87,6 +105,7 @@ function Contact() {
           </button>
         </form>
       </div>
+      <Toaster />
     </section>
   );
 }
