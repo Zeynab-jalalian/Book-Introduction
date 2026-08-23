@@ -12,7 +12,7 @@ function RegisterModal({ onClose, registerToLogin }) {
     e.preventDefault();
 
     if (name.trim() === "" || name.length < 8) {
-      toast.error("لطفاً نام خود را وارد کنید.");
+      toast.error("نام باید حداقل ۸ کاراکتر باشد.");
       return;
     }
 
