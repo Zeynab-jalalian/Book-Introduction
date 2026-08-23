@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const id = useId();
   function handleSubmit(e) {
     e.preventDefault();
     setName("");
@@ -34,12 +36,12 @@ function Contact() {
           className="w-full bg-white p-6 rounded-2xl shadow-[0_8_20px_rgba(0,0,0,0.08)] md:w-1/2 md:p-8"
         >
           <div className="mb-5">
-            <label htmlFor="name" className="block mb-2 text-stone-700">
+            <label htmlFor={id + "name"} className="block mb-2 text-stone-700">
               نام
             </label>
 
             <input
-              id="name"
+              id={id + "name"}
               type="text"
               className="w-full px-4 py-3 border border-stone-200 rounded-lg outline-none focus:border-amber-700"
               value={name}
@@ -48,12 +50,12 @@ function Contact() {
           </div>
 
           <div className="mb-5">
-            <label htmlFor="email" className="block mb-2 text-stone-700">
+            <label htmlFor={id + "email"} className="block mb-2 text-stone-700">
               ایمیل
             </label>
 
             <input
-              id="email"
+              id={id + "email"}
               type="email"
               className="w-full px-4 py-3 border border-stone-200 rounded-lg outline-none focus:border-amber-700"
               value={email}
@@ -62,12 +64,15 @@ function Contact() {
           </div>
 
           <div className="mb-5">
-            <label htmlFor="message" className="block mb-2 text-stone-700">
+            <label
+              htmlFor={id + "message"}
+              className="block mb-2 text-stone-700"
+            >
               پیام
             </label>
 
             <textarea
-              id="message"
+              id={id + "message"}
               className="w-full h-32 px-4 py-3 border border-stone-200 rounded-lg outline-none resize-none focus:border-amber-700"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
