@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert";
+import registerSchema from "../../validators/registerValidators";
 
 function RegisterModal({ onClose, registerToLogin }) {
   const [name, setName] = useState("");
@@ -11,32 +12,17 @@ function RegisterModal({ onClose, registerToLogin }) {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
-
-    if (name.trim() === "" || name.length < 8) {
-      toast.error("نام باید حداقل ۸ کاراکتر باشد.");
+    const resultRegister = registerSchema.safeParse({
+      name,
+      email,
+      password,
+      confirmPassword,
+      acceptedTerms,
+    });
+    if (!resultRegister.success) {
+      toast.error(resultRegister.error.issues[0].message);
       return;
     }
-
-    if (email.trim() === "") {
-      toast.error("لطفاً ایمیل خود را وارد کنید.");
-      return;
-    }
-
-    if (password.length < 8) {
-      toast.error("رمز عبور باید حداقل ۸ کاراکتر داشته باشد.");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      toast.error("رمزهای عبور یکسان نیستند.");
-      return;
-    }
-
-    if (!acceptedTerms) {
-      toast.error("لطفاً قوانین و شرایط را بپذیرید.");
-      return;
-    }
-
     Swal({
       title: "ثبت نام موفق!",
       text: "با موفقیت ثبت نام شدید.",
