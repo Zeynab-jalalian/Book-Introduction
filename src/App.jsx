@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import FeaturedBooks from "./components/FeaturedBooks";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <FeaturedBooks />
       <About />
       <Contact />
+      <Toaster />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useId, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import formSchema from "../../validators/formValidators";
 
 function Contact() {
@@ -10,27 +10,15 @@ function Contact() {
   const id = useId();
   function handleSubmit(e) {
     e.preventDefault();
-    // if (name.length < 8 || name.trim() === "") {
-    //   toast.error("نام کاربری باید حداقل 8 کاراکتر باشد.", {
-    //     duration: 1000,
-    //     position: "top-center",
-    //   });
-    //   return;
-    // }
-    // if (email.trim() === "") {
-    //   toast.error("لطفاً ایمیل خود را وارد کنید.");
-    //   return;
-    // }
-    // if (message.trim() === "") {
-    //   toast.error("لطفا پیام خود را وارد کنید.");
-    //   return;
-    // }
     const resultForm = formSchema.safeParse({
       name,
       email,
       message,
     });
-    console.log(resultForm);
+    if (!resultForm.success) {
+      toast.error(resultForm.error.issues[0].message);
+      return;
+    }
 
     toast.success("پیام شما با موفقیت ارسال شد");
 
@@ -113,7 +101,6 @@ function Contact() {
           </button>
         </form>
       </div>
-      <Toaster />
     </section>
   );
 }
