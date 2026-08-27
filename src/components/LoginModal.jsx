@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert";
+import loginValidators from "../../validators/loginValidators";
 
 function LoginModal({ onClose, loginToRegister }) {
   const [email, setEmail] = useState("");
@@ -9,15 +10,14 @@ function LoginModal({ onClose, loginToRegister }) {
   const [rememberMe, setRememberMe] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
-    if (email.trim() === "") {
-      toast.error("لطفاً ایمیل خود را وارد کنید.");
+    const resultLogin = loginValidators.safeParse({
+      email,
+      password,
+    });
+    if (!resultLogin.success) {
+      toast.error(resultLogin.error.issues[0].message);
       return;
     }
-    if (password.length < 8 || password.trim() === "") {
-      toast.error("رمزعبور حداقل باید 8 کاراکتر داشته باشد.");
-      return;
-    }
-
     Swal({
       title: "ورود موفق!",
       text: "با موفقیت وارد حساب کاربری شدید.",
