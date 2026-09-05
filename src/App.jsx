@@ -1,20 +1,17 @@
 import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import FeaturedBooks from "./components/FeaturedBooks";
+import { Routes, Route } from "react-router";
+import Home from "./Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
-      <Header />
-      <Hero />
-      <FeaturedBooks />
-      <About />
-      <Contact />
-      <Toaster />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </>
   );
 }
