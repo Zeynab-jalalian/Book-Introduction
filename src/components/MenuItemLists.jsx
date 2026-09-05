@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router";
 
 function MenuItemLists() {
   const menuItems = [
-    "خانه",
-    "کتاب‌ها",
-    "دسته‌بندی‌ها",
-    "درباره ما",
-    "ارتباط با ما",
+    { id: 1, title: "خانه", path: "/" },
+    { id: 2, title: "کتاب‌ها", path: "/books" },
+    { id: 3, title: "دسته‌بندی‌ها", path: "/categories" },
+    { id: 4, title: "درباره ما", path: "/about" },
+    { id: 5, title: "ارتباط با ما", path: "/contact" },
   ];
   return (
     <>
@@ -14,12 +15,15 @@ function MenuItemLists() {
         {menuItems.map((item) => {
           return (
             <li
-              key={item}
+              key={item.id}
               className="w-full text-center border-b border-stone-200 py-2.5 last:border-none md:w-auto md:border-none md:py-0"
             >
-              <a className="font-medium text-stone-700 hover:text-amber-700 transition-colors duration-300 cursor-pointer">
-                {item}
-              </a>
+              <Link
+                to={item.path}
+                className="font-medium text-stone-700 hover:text-amber-700 transition-colors duration-300 cursor-pointer"
+              >
+                {item.title}
+              </Link>
             </li>
           );
         })}
